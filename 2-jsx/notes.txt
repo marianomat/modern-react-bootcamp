@@ -85,3 +85,26 @@ Primero pones la condicion a cumplir seguido del operador && y luego lo que quer
             );
         }
     }
+
+
+#### Loops en JSX
+
+Generalmente se usa array.map()
+
+
+render() {
+    const mensajes = [
+        {id: 1, mensaje: "hola"},
+        {id: 2, mensaje: "chau}
+    ]
+    return(
+        <div>
+            <ul>
+                { mensajes.map(mensaje => <li> {mensaje.mensaje} </li> )}
+                ### TENER en cuenta que cuando escribo el li, estoy añadiendo markup, por lo tanto, hay que 
+                poner llaves de nuevo en mensaje.mensaje, sino es como si fuera HTML plano.
+            </ul>
+        </div>
+    )
+}
+

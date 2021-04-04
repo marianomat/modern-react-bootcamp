@@ -1,0 +1,55 @@
+#### Estilos en React
+
+Se añade el css con un link como siempre.
+Generalmente se crea una clase con el mismo nombre del componente al cual va a agregarle estilos. Y dentro del componente en el elemento que lo agrupa (div o lo que sea) se le agrega la clase.
+Hay que tener en cuenta que no se usa "class", sino que es "className". Porque class es una palabra reservada.
+(Otra palabra reservada es el "for" del elemento label, donde se usa "htmlFor")
+
+    class Hello extends React.Component {
+        render() {
+            return (
+                <div className="Hello">
+                    <h1>
+                        Hola a {this.props.para}, soy {this.props.de}!
+                    </h1>
+                </div>
+            );
+        }
+    }
+
+
+#### Inline CSS styles
+
+Se pueden pasar inline, pero style es un objeto de JS.
+Las propiedades son en camelcase y no kebabcase.
+
+
+    class Hello extends React.Component {
+        render() {
+            let estilos = {
+                color: this.props.color,
+                backgroundColor: this.props.bgColor
+            }
+            return (
+
+                <div style={estilos}>
+                    <h1>
+                        Hola a {this.props.para}, soy {this.props.de}!
+                    </h1>
+
+                    <p style={{color: "red"}}>Como estan?</p>
+                </div>
+            );
+        }
+    }
+
+
+
+#### Estilos condicionales
+
+Una manera de hacerlo es con el operador ternario.
+Aplicamos una clase distinta segun si es ganador o no.
+
+    return (
+        <p className={ winner ? "win" : "lose" } > Resultado </p>
+    )
