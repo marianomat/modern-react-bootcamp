@@ -1,0 +1,24 @@
+.Pokedex {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+.Pokedex h1 {
+	margin: 20px 0 5px 0;
+}
+.Pokedex h3 {
+	margin: 0;
+}
+.Pokedex-pokecard {
+	display: flex;
+	justify-content: space-evenly;
+	margin: 3% 10%;
+}
+
+.Pokedex-ganadora {
+	color: green;
+}
+
+.Pokedex-perdedora {
+	color: red;
+}
