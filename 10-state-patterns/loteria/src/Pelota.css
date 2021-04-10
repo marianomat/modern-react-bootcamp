@@ -1,0 +1,15 @@
+.Pelota {
+	border-radius: 50%;
+	background-color: tomato;
+	height: 75px;
+	width: 75px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Pelota-Numero {
+	font-size: 30px;
+	color: white;
+	font-weight: bold;
+}
