@@ -1,0 +1,8 @@
+.Caja-caja {
+	height: 150px;
+	width: 150px;
+}
+
+.Caja-caja:hover {
+	cursor: pointer;
+}
