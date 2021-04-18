@@ -15,4 +15,12 @@ map((elemento, index) => {
 
 Aunque no es recomandado usar los indexs, salvo que la informacion no cambie.
 
-Tambien hay librerias para hacer IDs.
+#### Librearia UUID
+
+Crea universally unique identifiers.
+
+        npm install uuid
+
+        import uuid from "uuid/v4";
+
+        id = uuid();

@@ -1,0 +1,45 @@
+#### Pasar informacion hacia arriba a un componente padre
+
+Como vimos en general la informacion pasa hacia abajo, del componente padre al hijo.
+Pero generalmente tenemos un componente hijo que posee un form, por lo tanto tenemos que pasarle al componente padre los datos del form para actualizar su estado.
+
+1. Definimos un metodo en el componente padre donde tiene un setState para actualizar el estado.
+2. Pasamos el metodo como prop al componente hijo con el form.
+3. Cuando el formulario es enviado (submited), llamamos el metodo con el estado como argumento. (usar preventDefault())
+4. El estado del padre es actualizado y por lo tanto rerenderiza a todos los componentes hijos, incluido el mismo.
+
+Ejemplo: componente padre administra una lista de compras, el componente hijo es un form donde añade un nuevo item a la lista.
+
+<script> 
+    class ShoppingList extends Component {
+    /** Add new item object to cart. */
+        addItem(item) {
+            let newItem = { ...item, id: uuid() };
+            this.setState(state => ({
+            items: [...state.items, newItem]
+            }));
+        }
+
+        render() {
+        return (
+            <div className="ShoppingList">
+            <NewListItemForm addItem={this.addItem}/>
+            {this.renderItems()}
+            </div>
+        );
+        }
+    } 
+
+    class NewListItemForm extends Component {
+    /** Send {name, quantity} to parent
+     *    & clear form. */
+
+        handleSubmit(evt) {
+            evt.preventDefault();
+            this.props.addItem(this.state);
+            this.setState({ name: "", qty: 0 });
+        }
+
+    }
+
+</script>
