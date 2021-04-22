@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./EditTodoForm.css";
 
 class EditTodoForm extends Component {
 	constructor(props) {
@@ -25,8 +26,11 @@ class EditTodoForm extends Component {
 	}
 	render() {
 		return (
-			<div>
-				<form onSubmit={this.handleSubmit}>
+			<div className="EditTodoForm">
+				<form
+					className="EditTodoForm-form"
+					onSubmit={this.handleSubmit}
+				>
 					<input
 						type="text"
 						name="todo-edit"

@@ -1,7 +1,49 @@
 .Todo {
-	width: 80%;
-	background-color: blue;
-	margin: 10px auto;
-	border-radius: 5px;
-	color: white;
+	display: flex;
+	margin: 0 -3rem 4px;
+	padding: 1.1rem 3rem;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.Todo-Task {
+	position: relative;
+	transition: opacity 0.4s linear;
+	cursor: pointer;
+}
+.Todo-completado {
+	text-decoration: line-through;
+	opacity: 0.6;
+}
+.Todo-completado:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: -0.5rem;
+	display: block;
+	width: 0%;
+	height: 2px;
+	background-color: #fff;
+	animation: strikeitem 0.5 ease-out 0s forwards;
+}
+@keyframes strikeitem {
+	to {
+		width: calc(100% + 2rem);
+	}
+}
+
+.Todo-Buttons {
+	flex-shrink: 0;
+	padding-left: 0.7em;
+}
+
+.Todo-Buttons button {
+	border: none;
+	font-size: 1em;
+	margin: 0.4em;
+	background: none;
+	-webkit-appearance: none;
+	cursor: pointer;
+	color: #fff;
 }

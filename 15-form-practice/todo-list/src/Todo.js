@@ -9,11 +9,18 @@ class Todo extends Component {
 			showForm: false,
 		};
 		this.handleRemove = this.handleRemove.bind(this);
+		this.handleCompletado = this.handleCompletado.bind(this);
 		this.showEdit = this.showEdit.bind(this);
 		this.hideEdit = this.hideEdit.bind(this);
 	}
 	handleRemove() {
 		this.props.remove(this.props.todo.id);
+	}
+	handleCompletado() {
+		this.props.completarTodo({
+			...this.props.todo,
+			completado: !this.props.todo.completado,
+		});
 	}
 	showEdit() {
 		this.setState({
@@ -27,19 +34,36 @@ class Todo extends Component {
 	}
 	render() {
 		let display = this.state.showForm ? (
-			<EditTodoForm
-				editTodo={this.props.editTodo}
-				todo={this.props.todo}
-				hideEdit={this.hideEdit}
-			/>
+			<div className="Todo">
+				<EditTodoForm
+					editTodo={this.props.editTodo}
+					todo={this.props.todo}
+					hideEdit={this.hideEdit}
+				/>
+			</div>
 		) : (
-			<div>
-				{this.props.todo.todo}
-				<span onClick={this.handleRemove}>X</span>
-				<span onClick={this.showEdit}>Edit</span>
+			<div className="Todo">
+				<div
+					onClick={this.handleCompletado}
+					className={
+						this.props.todo.completado
+							? "Todo-completado Todo-Task"
+							: "Todo-Task"
+					}
+				>
+					{this.props.todo.todo}
+				</div>
+				<div className="Todo-Buttons">
+					<button onClick={this.handleRemove}>
+						<i className="fas fa-trash" />
+					</button>
+					<button onClick={this.showEdit}>
+						<i className="fas fa-pen" />
+					</button>
+				</div>
 			</div>
 		);
-		return <div className="Todo">{display}</div>;
+		return display;
 	}
 }
 
