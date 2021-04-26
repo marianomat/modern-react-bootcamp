@@ -16,6 +16,9 @@ class Todo extends Component {
 	handleRemove() {
 		this.props.remove(this.props.todo.id);
 	}
+	componentWillUnmount() {
+		console.log("UNMOUNTING");
+	}
 	handleCompletado() {
 		this.props.completarTodo({
 			...this.props.todo,
@@ -32,6 +35,7 @@ class Todo extends Component {
 			showForm: false,
 		});
 	}
+
 	render() {
 		let display = this.state.showForm ? (
 			<div className="Todo">

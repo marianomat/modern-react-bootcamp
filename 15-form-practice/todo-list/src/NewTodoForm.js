@@ -22,6 +22,11 @@ class NewTodoForm extends Component {
 			todo: "",
 		});
 	}
+	componentDidUpdate(prevProps, prevState) {
+		console.log("TODO COMPONENT ");
+		console.log(prevProps);
+		console.log(this.props.todo);
+	}
 	render() {
 		return (
 			<form className="NewTodoForm" onSubmit={this.handleSubmit}>

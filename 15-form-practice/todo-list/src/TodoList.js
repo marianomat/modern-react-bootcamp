@@ -39,6 +39,11 @@ class TodoList extends Component {
 		});
 		this.setState({ todos: newTodos });
 	}
+	/* componentDidUpdate(prevProps, prevState) {
+		console.log("COMPONENTDIDUPDATE");
+		console.log(prevProps, prevState);
+		console.log(this.state);
+	} */
 	render() {
 		return (
 			<div className="TodoList">
