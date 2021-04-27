@@ -7,3 +7,5 @@ Esta etapa solo tiene un metodo llamado componentWillUnmount(), se utiliza para 
 Usar setState dentro de este metodo es inutil porque no hay un render luego de que se ejecuta.
 
 Este metodo se ejecuta justo antes de eliminar el componente.
+
+2
