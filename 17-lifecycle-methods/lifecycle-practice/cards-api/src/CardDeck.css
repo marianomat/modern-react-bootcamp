@@ -1,0 +1,60 @@
+.CardDeck {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.CardDeck-CardsContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: 100vw;
+	margin: auto;
+	height: 70vh;
+}
+
+.CardDeck-titulo,
+.CardDeck-subtitulo {
+	color: azure;
+	font-size: 40px;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+}
+.CardDeck-subtitulo {
+	font-size: 20px;
+}
+
+.CardDeck-btn {
+	background: none;
+	outline: none;
+	font: inherit;
+	margin: 0.5em;
+	padding: 1em 2em;
+	color: #009688;
+	border: 2px solid;
+	transition: all 0.25s;
+}
+
+.CardDeck-btn:hover {
+	border-color: #4caf50;
+	color: white;
+	box-shadow: inset 0 0 0 2em #4caf50;
+}
+.CardDeck-Card {
+	position: absolute;
+}
+
+.CardDeck-Card:nth-child(2n) {
+	transform: rotate(20deg);
+}
+.CardDeck-Card:nth-child(3n) {
+	transform: rotate(-20deg);
+}
+.CardDeck-Card:nth-child(5n) {
+	transform: rotate(40deg);
+}
+.CardDeck-Card:nth-child(6n) {
+	transform: rotate(-45deg);
+}
