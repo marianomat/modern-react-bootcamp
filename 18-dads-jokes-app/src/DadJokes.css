@@ -1,0 +1,7 @@
+.DadJokes {
+	min-height: 100vh;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
