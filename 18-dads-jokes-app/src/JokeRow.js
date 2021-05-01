@@ -12,7 +12,11 @@ class JokeRow extends Component {
 	render() {
 		return (
 			<div className="JokeRow">
-				<JokeScore vote={this.props.vote} joke={this.props.joke} />
+				<JokeScore
+					vote={this.props.vote}
+					joke={this.props.joke}
+					votes={this.props.joke.votes}
+				/>
 				<Joke joke={this.props.joke.joke} />
 				<JokeEmogi votes={this.props.joke.votes} />
 			</div>

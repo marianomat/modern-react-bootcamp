@@ -7,7 +7,7 @@
 }
 
 .JokeScore span {
-	border: 3px solid rgba(1, 192, 1, 0.5);
+	border: 3px solid;
 	border-radius: 50%;
 	padding: 5px;
 	margin: 0 10px;
