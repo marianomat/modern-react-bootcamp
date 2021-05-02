@@ -25,7 +25,7 @@ No es una herramienta oficial de React, es mas, hay muchas harramientas para cli
 -   Incluirlo: se importa en el index.js y envuelve al componente App. Esto hace que este disponible el routing pero no hace nada por si solo.
 
 <script>
-    import { BrowseRouter } from "react-router-dom";
+    import { BrowserRouter } from "react-router-dom";
 
     ReactDOM.render(
         <BrowserRouter>

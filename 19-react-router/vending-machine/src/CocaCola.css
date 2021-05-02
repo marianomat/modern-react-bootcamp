@@ -1,0 +1,7 @@
+.CocaCola h1 {
+	color: white;
+}
+
+.CocaCola button {
+	z-index: 1000;
+}
