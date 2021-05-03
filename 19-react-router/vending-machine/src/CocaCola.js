@@ -19,8 +19,8 @@ class CocaCola extends Component {
 						src={coca}
 						style={{
 							position: "absolute",
-							top: this.random(),
-							left: this.random(),
+							top: (window.innerHeight / 2) * this.random(),
+							left: window.innerWidth * this.random(),
 						}}
 					/>,
 				],
@@ -28,13 +28,16 @@ class CocaCola extends Component {
 		});
 	}
 	random() {
-		return Math.floor(Math.random() * 1000);
+		return Math.random();
 	}
 	render() {
 		return (
 			<div className="CocaCola">
-				<div>
+				<div className="CocaCola-cointainer">
 					<h2>Comprar una cocaaaa</h2>
+					<p style={{ color: "white" }}>
+						{this.state.cocas.length} Compradas paaa
+					</p>
 					<button onClick={this.comprarCoca}>COMPRAR</button>
 				</div>
 				{this.state.cocas.map((coca) => {

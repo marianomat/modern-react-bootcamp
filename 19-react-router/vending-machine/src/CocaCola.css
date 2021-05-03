@@ -1,7 +1,24 @@
-.CocaCola h1 {
-	color: white;
+.CocaCola {
+	text-align: center;
+	min-height: 100vh;
+	display: flex;
 }
 
-.CocaCola button {
-	z-index: 1000;
+.CocaCola h2 {
+	color: black;
+	margin: 0;
+}
+
+.CocaCola img {
+	z-index: -1;
+}
+
+.CocaCola-cointainer {
+	background-color: rgba(255, 255, 255, 0.5);
+	width: fit-content;
+	margin: auto;
+	padding: 10px 20px;
+}
+.active-link {
+	color: yellow !important;
 }

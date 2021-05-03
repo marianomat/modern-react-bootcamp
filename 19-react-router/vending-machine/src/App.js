@@ -10,10 +10,18 @@ function App() {
 	return (
 		<div className="App">
 			<nav>
-				<NavLink to="/coca">Coca-Cola</NavLink>
-				<NavLink to="/sprite">Sprite</NavLink>
-				<NavLink to="/papas">Lays</NavLink>
-				<NavLink to="/">Home</NavLink>
+				<NavLink exact activeClassName="active-link" to="/coca">
+					Coca-Cola
+				</NavLink>
+				<NavLink exact activeClassName="active-link" to="/sprite">
+					Sprite
+				</NavLink>
+				<NavLink exact activeClassName="active-link" to="/papas">
+					Lays
+				</NavLink>
+				<NavLink exact activeClassName="active-link" to="/">
+					Home
+				</NavLink>
 			</nav>
 			<Switch>
 				<Route exact path="/coca" component={CocaCola} />

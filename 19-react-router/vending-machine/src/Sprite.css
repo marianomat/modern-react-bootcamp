@@ -1,0 +1,32 @@
+.Sprite {
+	display: flex;
+	justify-content: space-around;
+}
+
+.Sprite h1 {
+	color: aqua;
+	align-self: center;
+}
+.Sprite img {
+	animation-name: girar;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes girar {
+	0% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(90deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	75% {
+		transform: rotate(270deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
