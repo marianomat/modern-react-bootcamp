@@ -183,3 +183,53 @@ Manera 1: usando un Link en vez de un boton para hacer el submit del input
         }
 
         export default Form;
+
+#### Redirects en React
+
+Client-side redirects, con React Router podemos simular el comportamiento de server-side redirects.
+Son utiles para:
+
+1. Despues de que el usuario realice ciertas acciones. (Submit un form)
+2. Cuando algo sale mal y tenes un 404 que agarra todos los errores.
+
+Hay 2 maneras:
+
+# Redirect Component
+
+Usando el <Redirect to=""> dentro del render, es util para situaciones donde el usuario no deberia estar y lo mandas a otro lado.
+
+# Pushing onto the history prop
+
+Llamas al metodo .push en history route prop.
+Todos los navegadores llevan un registro del historial de paginas que visitaste (con esto funcionan las flechas volver atras o ir adelante) y React Router tiene su propia historia (objeto history) y podemos llamar .push y cuando lo hacemos redireccionamos al usuario.
+
+# Diferencias entre las 2 opciones
+
+Hay una diferencia clave en como va a funcionar el boton volver del navegador.
+
+En el Redirect component, no vemos el paso intermedio, es decir que si estoy en "/" y paso a "/asdads" y esa ruta es una ruta que no quiero que vean, hago un redirect a "/otrolado". En ese caso cuando estoy en "/otrolado" y vuelvo atras no vuelvo a "/asdasd" sino que vuelvo a "/", es decir, no guarda el registro de que fui a esa pagina.
+
+En cambio, con el push en el history, si guardamos ese paso intermedio, por lo tanto en el ejemplo anterior volveriamos a "/asdasd" y por lo tanto a "/otrolado" y asi cada vez que vuelvo atras. Es como si no funcionara el boton volver.
+
+Es por esto que usamos redirect cuando es una pagina donde no queremos que el usuario vea o sepa que existe, entonces no dejamos rastros para volver con el boton.
+En cambio si es algo normal de la pagina donde es correcto el actuar del usuario, y queremos que pueda volver normalmente usamos el push.
+
+#### withRouter higher order component
+
+Un error que suele ocurrir es cuando tenemos un componente Navbar donde logueamos, y apretamos el boton donde nos redirecciona a otro lado mediante un push al history. Al ser un Navbar se renderiza siempre en el App.js es decir esta fuera del Switch.
+El problema es que el navbar esta fuera del Switch y las Route. Por lo tanto no tenemos acceso a las RouterProps y por lo tanto a history.
+Como vimos antes para solucionar esto si era component no habia problema y si era render lo pasabamos como argumento.
+Pero aca esta afuera de todo el Router.
+
+Solucion: podemos importar en el componente Navbar withRouter de React Router y en el export ponemos: export default withRouter(Navbar)
+Es como que lo envuelve al componente cuando se exporta y establece que ese componente debe saber sobre React Router, history y esas cosas.
+
+Es una manera de conectar componentes que no tienen nada que ver con React Router.
+
+#### History
+
+Como vimos el objeto history tiene un metodo llamado push para redireccionar, pero no es el unico, tiene mas, algunos tienen que ver con moverse para atras o adelante segun el historial.
+
+Boton volver:
+
+        this.props.history.goBack();

@@ -8,6 +8,13 @@ class Form extends Component {
 			input: "",
 		};
 		this.handleChange = this.handleChange.bind(this);
+		this.handleClick = this.handleClick.bind(this);
+	}
+	handleClick() {
+		alert("guardado en la base de datos kappa");
+		//*Aca corremso algun codigo para guardar en la DB y despues redireccionamos
+		this.props.history.push(`/img/${this.state.input}`);
+		console.log(this.props.history);
 	}
 	handleChange(e) {
 		this.setState({
@@ -24,6 +31,7 @@ class Form extends Component {
 					onChange={this.handleChange}
 				/>
 				<Link to={`/img/${this.state.input}`}>Buscar</Link>
+				<button onClick={this.handleClick}>Guardar foto!</button>
 			</div>
 		);
 	}
