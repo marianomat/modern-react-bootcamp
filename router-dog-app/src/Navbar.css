@@ -1,0 +1,8 @@
+#navbarNavAltMarkup .navbar-nav .active-link {
+	color: red;
+}
+.Navbar {
+	background-color: black;
+	color: white;
+	height: 50px;
+}
