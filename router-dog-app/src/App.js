@@ -26,8 +26,8 @@ function App() {
 						<Dog {...App.defaultProps} {...routerProps} />
 					)}
 				/>
+				<Redirect to="/dogs"></Redirect>
 			</Switch>
-			<Redirect to="/dogs" className="btn btn-primary"></Redirect>
 		</div>
 	);
 }

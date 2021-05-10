@@ -18,10 +18,10 @@ class Navbar extends Component {
 			);
 		});
 		return (
-			<nav className="navbar navbar-expand-lg navbar-light bg-light">
+			<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 				<div className="container">
 					<Link className="navbar-brand" to="/dogs">
-						Dogs
+						Dog App
 					</Link>
 					<button
 						className="navbar-toggler"

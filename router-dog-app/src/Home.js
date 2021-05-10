@@ -5,19 +5,21 @@ import "./Home.css";
 class Home extends Component {
 	render() {
 		const dogs = this.props.dogs;
-		const cardsDogs = dogs.map((dog) => {
+		const cardsDogs = dogs.map((dog, i) => {
 			return (
-				<div className="col-12 col-md-6 col-lg-3">
+				<div key={i} className="col-md-6 col-lg-3">
 					<div className="card mx-auto" style={{ width: 18 + "rem" }}>
-						<img src={dog.src} className="img-fluid" alt="..." />
-						<div class="card-body">
-							<h5 className="card-title">{dog.name}</h5>
-
+						<img
+							src={dog.src}
+							className="img-fluid mt-3"
+							alt="..."
+						/>
+						<div className="card-body">
 							<Link
 								to={`/dogs/${dog.name}`}
-								className="btn btn-primary"
+								className="underline"
 							>
-								Go somewhere
+								{dog.name}
 							</Link>
 						</div>
 					</div>
