@@ -17,12 +17,10 @@ Hay que tener en cuenta que no se usa "class", sino que es "className". Porque c
         }
     }
 
-
 #### Inline CSS styles
 
 Se pueden pasar inline, pero style es un objeto de JS.
 Las propiedades son en camelcase y no kebabcase.
-
 
     class Hello extends React.Component {
         render() {
@@ -43,8 +41,6 @@ Las propiedades son en camelcase y no kebabcase.
         }
     }
 
-
-
 #### Estilos condicionales
 
 Una manera de hacerlo es con el operador ternario.
@@ -53,7 +49,6 @@ Aplicamos una clase distinta segun si es ganador o no.
     return (
         <p className={ winner ? "win" : "lose" } > Resultado </p>
     )
-
 
 #### Assets en CRA
 
@@ -68,7 +63,7 @@ Tambien se agrega en el div principal que devuelve un componente, la clase con s
             </div>
         )
         ...
-        
+
 Para incluir imagenes o CSS, podemos importarlos en el archivo del componente. CRA automaticamente carga el CSS.
 
         import React, {Component} from "react";
@@ -78,9 +73,47 @@ Para incluir imagenes o CSS, podemos importarlos en el archivo del componente. C
         ...
             render() {
                 return (
-                    <img src={logo} className="App-logo" /> 
+                    <img src={logo} className="App-logo" />
                 )
             }
         ...
 
 Hay que tener en cuenta que el css de cada componente afecta a todos lo demas, por lo tanto es importante usar clases y no directamente selectores con nombres de elementos como div, porque va a seleccionar todos los divs de todos los componentes.
+
+#### withStyles
+
+Hay maneras de escribir css dentro de JS, una de ellas es con material-ui
+
+instalamos
+
+Te permite escribir css como sass dentro de JS.
+Una cosa a tener en cuenta que estos estilo solo aplican aca a estos componentes, no pasa lo mismo de que cuando usamos css normal donde cambiamos un h1 de color y cambia todos lo h1 de color y no solo el del componente.
+
+<script> 
+import React from "react";
+import { withStyles } from "@material-ui/styles";
+
+const styles = {
+	main: {
+		backgroundColor: "purple",
+		border: "3px solid teal",
+		"& h1": {
+			color: "white",
+		},
+	},
+	secondary: {
+		backgroundColor: "pink",
+	},
+};
+
+function MiniPalette(props) {
+	const { classes } = props;
+	return (
+		<div className={classes.main}>
+			<h1 className={classes.secondary}>Minipallete</h1>
+		</div>
+	);
+}
+
+export default withStyles(styles)(MiniPalette);
+</script>
